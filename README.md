@@ -19,6 +19,7 @@ Training Laravel 04 Mac - 07 Mac 2019
 
 #### Day 3
 
+1. Laravel Collective : HTML
 1. Route Resources
 2. Controller Resources
 3. Model Relationship
