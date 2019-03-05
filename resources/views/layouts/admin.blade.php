@@ -71,6 +71,18 @@
     </div>
 
     <div class="content mt-3">
+
+        <!-- List form error msg -->
+        @if(count($errors) > 0)
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+
         @yield('content')
     </div> <!-- .content -->
 </div><!-- /#right-panel -->

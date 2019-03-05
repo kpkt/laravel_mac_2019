@@ -1,26 +1,26 @@
 @extends('layouts.admin')
 
-@section('title', 'Profile')
+@section('title', 'Edit Profile')
 
 @section('content')
-    <form method="post" action="{{ route('home.profile.store') }}">
+    <form method="post" action="{{ route('home.profile.update', ['id' => $profile->id]) }}">
         @csrf
         <div class="form-group">
             <label>Nama</label>
-            <input type="text" name="nama" class="form-control">
+            <input type="text" name="nama" value="{{ $profile->nama }}" class="form-control">
         </div>
 
         <div class="form-group">
             <label>Umur</label>
-            <input type="text" name="umur" class="form-control">
+            <input type="text" name="umur" value="{{ $profile->umur }}" class="form-control">
         </div>
 
         <div class="form-group">
             <label>Jantina</label>
             <select name="jantina" class="form-control">
                 <option value="">-- Sila Pilih --</option>
-                <option value="L">Lelaki</option>
-                <option value="P">Perempuan</option>
+                <option value="L" {{ $profile->jantina == 'L' ? 'selected' : '' }}>Lelaki</option>
+                <option value="P" {{ $profile->jantina == 'P' ? 'selected' : '' }}>Perempuan</option>
             </select>
         </div>
 

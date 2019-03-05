@@ -4,18 +4,23 @@
 
 @section('content')
     <div class="row">
+        <div class="col-2">ID</div>
+        <div class="col">{{ $profil->id }}</div>
+    </div>
+
+    <div class="row">
         <div class="col-2">Nama</div>
-        <div class="col">{{ $postData['nama'] }}</div>
+        <div class="col">{{ $profil->nama }}</div>
     </div>
 
     <div class="row">
         <div class="col-2">Umur</div>
-        <div class="col">{{ $postData['umur'] }}</div>
+        <div class="col">{{ $profil->umur }}</div>
     </div>
 
     <div class="row">
         <div class="col-2">Jantina</div>
-        <div class="col">{{ $postData['jantina'] == 'L' ? 'Lelaki' : 'Perempuan' }}</div>
+        <div class="col">{{ $profil->jantina == 'L' ? 'Lelaki' : 'Perempuan' }}</div>
     </div>
 
     <div class="row">
