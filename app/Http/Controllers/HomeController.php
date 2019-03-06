@@ -40,13 +40,15 @@ class HomeController extends Controller
         return view('home.profile_list', compact('profiles'));
     }
 
-    public function profile_all(){
+    public function profile_all()
+    {
         // List all data with deleted record
         $profiles = Profile::withTrashed()->get();
         return view('home.profile_list', compact('profiles'));
     }
 
-    public function profile_trash(){
+    public function profile_trash()
+    {
         // List only deleted data
         $profiles = Profile::onlyTrashed()->get();
         return view('home.profile_list', compact('profiles'));
@@ -81,7 +83,7 @@ class HomeController extends Controller
         $profil->umur = $request->input('umur');
         $profil->jantina = $request->input('jantina');
         $profil->save(); // Save data to table database
-        
+
         return view('home.submited', compact('profil'));
     }
 
@@ -123,6 +125,18 @@ class HomeController extends Controller
         $profil->delete();
 
         return redirect()->route('home.list-profile');
+    }
+
+    // Restore soft deleted data profile
+    public function profile_restore($id)
+    {
+        Profile::where('id', $id)->withTrashed()->restore();
+        return redirect()->route('home.list-profile');
+    }
+
+    public function wysiwyg()
+    {
+        return view('home.wysiwyg');
     }
 
 }

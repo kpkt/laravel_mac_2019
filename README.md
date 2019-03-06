@@ -26,5 +26,7 @@ Training Laravel 04 Mac - 07 Mac 2019
 
 #### Day 4
 
-1. All Day Exhausted Mini Project?
-2. Kahoot.it! Quiz?
+1. Upload File
+2. Many to Many Relationship
+3. Email
+4. PDF

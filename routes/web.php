@@ -20,6 +20,7 @@ Route::get('/home', 'HomeController@dashboard');
 Route::get('/detail', 'HomeController@detail');
 Route::get('calc', 'HomeController@calcForm')->name('home.calc.form');
 Route::post('calc', 'HomeController@calcProc')->name('home.calc.store');
+Route::get('form', 'HomeController@wysiwyg')->name('home.wysiwyg');
 
 //List Profile
 Route::get('list-profile', 'HomeController@profile_list')->name('home.list-profile');
@@ -34,4 +35,11 @@ Route::get('profile/{id}', 'HomeController@profile_edit')->name('home.profile.ed
 Route::post('profile/{id}', 'HomeController@profile_update')->name('home.profile.update');
 //Delete Profile
 Route::get('profile/{id}/delete', 'HomeController@profile_destroy')->name('home.profile.destroy');
+Route::get('profile/{id}/restore', 'HomeController@profile_restore')->name('home.profile.restore');
 
+Route::resource('categories', 'CategoryController');
+Route::resource('tags', 'TagController');
+
+Route::resource('posts', 'PostController');
+Route::get('publish-post/{id}', 'PostController@publish')->name('posts.publish');
+Route::get('unpublished-post/{id}', 'PostController@unpublished')->name('posts.unpublished');

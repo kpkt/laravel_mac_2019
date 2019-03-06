@@ -15,6 +15,7 @@
     <title>@yield('title')</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+
     <link rel="stylesheet" href="{{ asset('sufee/vendors/bootstrap/dist/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('sufee/vendors/font-awesome/css/font-awesome.min.css') }}">
     <link rel="stylesheet" href="{{ asset('sufee/vendors/themify-icons/css/themify-icons.css') }}">
@@ -23,6 +24,7 @@
     <link rel="stylesheet" href="{{ asset('sufee/vendors/jqvmap/dist/jqvmap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('sufee/assets/css/style.css') }}">
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.11/summernote-bs4.css">
 </head>
 
 <body>
@@ -93,12 +95,12 @@
 <script src="{{ asset('sufee/vendors/bootstrap/dist/js/bootstrap.min.js') }}"></script>
 <script src="{{ asset('sufee/assets/js/main.js') }}"></script>
 
-<script src="{{ asset('sufee/vendors/chart.js/dist/Chart.bundle.min.js') }}"></script>
-<script src="{{ asset('sufee/assets/js/dashboard.js') }}"></script>
-<script src="{{ asset('sufee/assets/js/widgets.js') }}"></script>
-<script src="{{ asset('sufee/vendors/jqvmap/dist/jquery.vmap.min.js') }}"></script>
-<script src="{{ asset('sufee/vendors/jqvmap/examples/js/jquery.vmap.sampledata.js') }}"></script>
-<script src="{{ asset('sufee/vendors/jqvmap/dist/maps/jquery.vmap.world.js') }}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.11/summernote-bs4.min.js"></script>
+<script>
+    jQuery('.summernote').summernote({
+        minHeight: 200
+    });
+</script>
 
 </body>
 </html>

@@ -3,6 +3,11 @@
 @section('title', 'Senarai Profil')
 
 @section('content')
+    <div class="row">
+        <div class="col mb-1 text-right">
+            <a href="{{ route('home.profile') }}" class="btn btn-primary">New Profile</a>
+        </div>
+    </div>
     <table class="table table-bordered">
         <tr>
             <th>#</th>
@@ -26,8 +31,17 @@
                        class="btn btn-warning">
                         Kemaskini
                     </a>
-                    <a href="{{ route('home.profile.destroy', ['id' => $profile->id]) }}"
-                       class="btn btn-danger">Hapus</a>
+                    @if($profile->deleted_at == null)
+                        <a href="{{ route('home.profile.destroy', ['id' => $profile->id]) }}"
+                           class="btn btn-danger">
+                            Hapus
+                        </a>
+                    @else
+                        <a href="{{ route('home.profile.restore', ['id' => $profile->id]) }}"
+                           class="btn btn-dark">
+                            Restore
+                        </a>
+                    @endif
                 </td>
             </tr>
         @endforeach
