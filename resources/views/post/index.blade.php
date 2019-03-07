@@ -25,8 +25,16 @@
             <!-- Loop Data -->
             @foreach($posts as $post)
                 <tr>
-                    <td>{{ $loop->iteration }}</td>
-                    <td></td>
+                    <td>
+                        {{ ($posts->perPage() * ($posts->currentPage() - 1)) + $loop->iteration }}
+                        {{--{{ $loop->iteration }}--}}
+                    </td>
+                    <td>
+                        @if($post->thumbnail)
+                            <img src="{{ asset($post->thumbnail) }}"
+                                 class="img-thumbnail" style="width: 150px;">
+                        @endif
+                    </td>
                     <td>{{ $post->category->name }}</td>
                     <td>{{ $post->subject }}</td>
                     <td>{{ $post->published_at != null ? $post->published_at->format('d M Y, H:i A') : '' }}</td>
@@ -62,5 +70,8 @@
         @endforeach
         <!-- End Loop Data -->
         </table>
+
+        {{ $posts->links() }}
+
     </div>
 @endsection

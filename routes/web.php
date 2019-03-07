@@ -12,11 +12,9 @@
 */
 
 Route::get('/', function () {
-    return view('dashboard');
-//    return view('welcome');
+    return redirect()->route('login');
 });
 
-Route::get('/home', 'HomeController@dashboard');
 Route::get('/detail', 'HomeController@detail');
 Route::get('calc', 'HomeController@calcForm')->name('home.calc.form');
 Route::post('calc', 'HomeController@calcProc')->name('home.calc.store');
@@ -43,3 +41,13 @@ Route::resource('tags', 'TagController');
 Route::resource('posts', 'PostController');
 Route::get('publish-post/{id}', 'PostController@publish')->name('posts.publish');
 Route::get('unpublished-post/{id}', 'PostController@unpublished')->name('posts.unpublished');
+
+Route::get('pdf/form-controller', 'PdfController@pdf_controller')
+    ->name('pdf.controller');
+Route::get('pdf/form-view', 'PdfController@pdf_view')->name('pdf.view');
+
+Route::get('test-mail', 'PdfController@test_mail');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

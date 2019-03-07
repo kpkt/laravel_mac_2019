@@ -26,6 +26,8 @@
         <a href="{{ route('categories.index') }}"> <i class="menu-icon fa fa-tasks"></i>Category </a>
         <a href="{{ route('tags.index') }}"> <i class="menu-icon fa fa-tasks"></i>Tag </a>
         <a href="{{ route('posts.index') }}"> <i class="menu-icon fa fa-wordpress"></i>Post </a>
+        <a href="{{ route('pdf.controller') }}" target="_blank"> <i class="menu-icon fa fa-file-pdf-o"></i>PDF Controller </a>
+        <a href="{{ route('pdf.view') }}" target="_blank"> <i class="menu-icon fa fa-html5"></i>PDF Load View </a>
     </li>
 
 </ul>

@@ -29,6 +29,16 @@
     </div>
 </div>
 
+<div class="row form-group">
+    <label>Tags:</label>
+    @foreach($tags as $tag)
+        <div class="col-2">
+{{--            {!! Form::checkbox('tags[]', $tag->id, false) !!} {{ $tag->name }}--}}
+            {!! Form::checkbox('tags[]', $tag->id, isset($post) ? $post->tags->contains($tag->id) : false) !!} {{ $tag->name }}
+        </div>
+    @endforeach
+</div>
+
 <div class="row justify-content-end form-group">
     <div class="col-2">
         {!! Form::checkbox('is_draft', 1, true) !!} Draft
